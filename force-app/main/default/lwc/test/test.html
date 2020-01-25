@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title="Training Application" icon-name="standard:account">
+        <div class="slds-card__body_inner">
+    <c-tabset variant="scoped">
+        <template for:each={tabCollection} for:item="item" for:index="index">
+            <c-tab key={item.index}>
+                <lightning-layout multiple-rows="true" vertical-align="end">
+                    <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6" padding="around-small">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                              
+                            </div>
+                        </div>    
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="5" medium-device-size="5" large-device-size="5" padding="around-small">
+                        <div class="slds-form-element">
+                            <div class="slds-form-element__control">
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" small-device-size="1" medium-device-size="1" large-device-size="1" padding="around-small">
+                       
+                    </lightning-layout-item>
+                </lightning-layout>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_12-of-12">
+                        <div class="custom-box">
+            
+            
+            <c-datatable config={config}>
+            </c-datatable>
+        </div>
+        </div>
+        </div>
+    
+    </c-tab>
+        </template>
+        
+
+</c-tabset>
+</div>         
+</lightning-card>       
+</template>

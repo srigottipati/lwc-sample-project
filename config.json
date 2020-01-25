@@ -1,0 +1,260 @@
+[{
+    "objectName": "G1_Picklist__c",
+
+    "soslSearchTerm": "",
+    "searchTerm": "",
+    "tableConfig": {
+        "columns": [{
+                "id": "1",
+                "api": "Name",
+                "label": "Name",
+                "fieldName": "Name",
+                "sortable": true,
+                "type": "button",
+                "typeAttributes": {
+                    "name": "edit_#index#_G1_Picklist__c",
+                    "variant": "base",
+                    "label": {
+                        "fieldName": "Name"
+                    },
+                    "target": "_self"
+                },
+                "section": "General Properties"
+            },
+            {
+                "id": 2,
+                "api": "Code__c",
+                "label": "Code",
+                "fieldName": "Code__c",
+                "type": "text",
+                "sortable": true,
+                "section": "General Properties"
+            },
+
+            {
+                "id": 2,
+                "api": "Is_Active__c",
+                "label": "Is Active",
+                "fieldName": "Is_Active__c",
+                "type": "boolean",
+                "sortable": true,
+                "section": "General Properties"
+            },
+
+            {
+                "id": 2,
+                "api": "Desc__c",
+                "label": "Desc",
+                "fieldName": "Desc__c",
+                "type": "text",
+                "sortable": true,
+                "section": "General Properties"
+            },
+            {
+                "id": 2,
+                "api": "Type__c",
+                "label": "Type",
+                "fieldName": "Type__c",
+                "type": "text",
+                "sortable": true,
+                "section": "General Properties"
+            }
+
+        ]
+    },
+    "editConfig": {
+        "label": "Pick List Details"
+
+    },
+    "children": [{
+        "objectName": "G1_PickItem__c",
+        "relField": {
+            "id:2,api": "G1_Picklist__c",
+            "label": "G1 Picklist",
+            "fieldName": "G1_Picklist",
+            "type": "Text",
+            "sortable": true,
+            "section": "General Properties",
+            "value": "",
+            "withvalue": true
+        },
+        "section": "Picklist Items",
+
+        "tableConfig": {
+            "columns": [{
+                    "id": 1,
+                    "api": "Name",
+                    "label": "Name",
+                    "fieldName": "Name",
+                    "sortable": true,
+                    "type": "button",
+                    "typeAttributes": {
+                        "name": "edit_#index#_G1_PickItem__c",
+                        "variant": "base",
+                        "label": {
+                            "fieldName": "Name"
+                        },
+                        "target": "_self"
+                    },
+                    "section": "General Properties"
+                },
+                {
+                    "id": 2,
+                    "api": "Code__c",
+                    "label": "Code",
+                    "fieldName": "Code__c",
+                    "type": "Text",
+                    "sortable": true,
+                    "section": "General Properties"
+                },
+                {
+                    "id": 3,
+                    "api": "Desc__c",
+                    "label": "Desc",
+                    "fieldName": "Desc__c",
+                    "type": "Text",
+                    "sortable": true,
+                    "section": "General Properties"
+                },
+                {
+                    "id": 4,
+                    "api": "Seq__c",
+                    "label": "Seq",
+                    "fieldName": "SeSeq__c",
+                    "type": "Text",
+                    "sortable": true,
+                    "section": "General Properties"
+                },
+                {
+                    "id": 5,
+                    "api": "CreatedDate",
+                    "label": "Created On",
+                    "fieldName": "CreatedDate",
+                    "type": "date",
+                    "sortable": true,
+                    "section": "System Properties"
+                },
+                {
+                    "id": 6,
+                    "api": "CreatedBy.Name",
+                    "label": "Created By",
+                    "fieldName": "CreatedByName",
+                    "sortable": true,
+                    "section": "System Properties"
+                }
+            ]
+        },
+        "editConfig": {
+            "label": "PickList Item Details"
+
+        }
+    }]
+},
+{
+    "objectName": "G1_Product__c",
+    "soslSearchTerm": "",
+    "tableConfig": {
+        "columns": [{
+                "id": 1,
+                "api": "Name",
+                "label": "Name",
+                "fieldName": "Name",
+                "sortable": true,
+                "type": "button",
+                "typeAttributes": {
+                    "name": "edit_#index#_G1_Product__c",
+                    "variant": "base",
+                    "label": {
+                        "fieldName": "Name"
+                    },
+                    "target": "_self"
+                },
+                "section": "General Properties"
+            },
+            {
+                "id": 2,
+                "api": "Price__c",
+                "label": "Price",
+                "fieldName": "Price__c",
+                "type": "currency",
+                "sortable": true,
+                "section": "General Properties"
+            },
+            {
+                "id": 3,
+                "api": "CreatedDate",
+                "label": "Created On",
+                "fieldName": "CreatedDate",
+                "type": "date",
+                "sortable": true,
+                "section": "System Properties"
+            },
+            {
+                "id": 4,
+                "api": "CreatedBy.Name",
+                "label": "Created By",
+                "fieldName": "CreatedByName",
+                "sortable": true,
+                "section": "System Properties"
+            }
+
+        ]
+    },
+    "editConfig": {
+        "label": "Product Details"
+    }
+},
+{
+    "objectName": "G1_Promotion__c",
+    "soslSearchTerm": "",
+    "tableConfig": {
+        "columns": [{
+                "id": 1,
+                "api": "Name",
+                "label": "Name",
+                "fieldName": "Name",
+                "sortable": true,
+                "type": "button",
+                "typeAttributes": {
+                    "name": "edit_#index#_G1_Promotion__c",
+                    "variant": "base",
+                    "label": {
+                        "fieldName": "Name"
+                    },
+                    "target": "_self"
+                },
+                "section": "General Properties"
+            },
+            {
+                "id": 2,
+                "api": "Start_Date__c",
+                "label": "Start Date",
+                "fieldName": "Start_Date__c",
+                "type": "date",
+                "sortable": true,
+                "section": "General Properties"
+            },
+            {
+                "id": 3,
+                "api": "CreatedDate",
+                "label": "Created On",
+                "fieldName": "CreatedDate",
+                "type": "date",
+                "sortable": true,
+                "section": "System Properties"
+            },
+            {
+                "id": 4,
+                "api": "CreatedBy.Name",
+                "label": "Created By",
+                "fieldName": "CreatedByName",
+                "sortable": true,
+                "section": "System Properties"
+            }
+        ]
+    },
+    "editConfig": {
+        "label": "Promotion Details"
+    }
+}
+]

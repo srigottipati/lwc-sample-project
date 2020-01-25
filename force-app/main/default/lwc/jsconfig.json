@@ -1,0 +1,77 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/buttonMenu": [
+                "buttonMenu/buttonMenu.js"
+            ],
+            "c/datatable": [
+                "datatable/datatable.js"
+            ],
+            "c/icon": [
+                "icon/icon.js"
+            ],
+            "c/iconUtils": [
+                "iconUtils/iconUtils.js"
+            ],
+            "c/inputLocation": [
+                "inputLocation/inputLocation.js"
+            ],
+            "c/inputUtils": [
+                "inputUtils/inputUtils.js"
+            ],
+            "c/lwcDatatable": [
+                "lwcDatatable/lwcDatatable.js"
+            ],
+            "c/menuItem": [
+                "menuItem/menuItem.js"
+            ],
+            "c/overflowLibrary": [
+                "overflowLibrary/overflowLibrary.js"
+            ],
+            "c/primitiveIcon": [
+                "primitiveIcon/primitiveIcon.js"
+            ],
+            "c/resizeObserver": [
+                "resizeObserver/resizeObserver.js"
+            ],
+            "c/sampleDataTable": [
+                "sampleDataTable/sampleDataTable.js"
+            ],
+            "c/sampleNewTable": [
+                "sampleNewTable/sampleNewTable.js"
+            ],
+            "c/spinner": [
+                "spinner/spinner.js"
+            ],
+            "c/tab": [
+                "tab/tab.js"
+            ],
+            "c/tabBar": [
+                "tabBar/tabBar.js"
+            ],
+            "c/tabset": [
+                "tabset/tabset.js"
+            ],
+            "c/utils": [
+                "utils/utils.js"
+            ],
+            "c/utilsPrivate": [
+                "utilsPrivate/utilsPrivate.js"
+            ],
+            "c/test": [
+                "test/test.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

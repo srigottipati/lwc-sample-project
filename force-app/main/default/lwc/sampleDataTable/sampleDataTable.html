@@ -1,0 +1,99 @@
+<template>
+    <lightning-card>
+       
+        <div class="slds-card__body_inner">
+            <lightning-button variant="brand" label="New Search" title="Looks like a link" onclick={addNewSearchTab} class="slds-m-left_x-small"></lightning-button>
+         <lightning-tabset variant="scoped" onselect={onTabsetSelect} onclick={onTabsetClick}>
+             <template for:each={tabCollection} for:item="item" for:index="index"> 
+                 <lightning-tab label={item.label} key={item.tabid} size="small" end-icon-name="utility:close" data-indextab={item.tabid} onclick={onTabClick} onactive={onTactiveActive}> 
+                    <template if:true={item.showRemoveTab}>
+                        <lightning-button variant="brand" label="Remove Tab" title="Remove Tab" onclick={removeTab} data-index={item.tabid} class="slds-m-left_x-small"></lightning-button>
+                    </template>
+                     <template if:true={item.isSearch}>
+                        <lightning-button-icon icon-name="utility:add" data-indexbutton={index}  alternative-text="Add" onclick={showNewForm}></lightning-button-icon>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning-input name="search" type="text" value={item.searchTerm} label="Enter search text" placeholder="type here..." onchange={onSearchTermChange} data-index={item.tabid}></lightning-input>
+                        </div>
+                        <div class="slds-p-around_medium lgc-bg">
+                            <lightning:layoutItem flexibility="auto" padding="around-small">
+                                <div class="custom-box"><lightning-combobox data-indexcombo={item.tabid}
+                                    name="progress"
+                                    label="Pick"
+                                    value={defaultValue}
+                                    placeholder="Select Object"
+                                    options={options}
+                                    onchange={objectListChange}
+                                    required
+                                ></lightning-combobox></div>
+                            </lightning:layoutItem>
+                        </div>
+                        <lightning:layout class="x-large">
+                        
+                          
+                            <lightning:layoutItem flexibility="auto" padding="around-small">
+                                <div class="custom-box">
+                                    <c-datatable config={item.config} data-id={item.tableid} onrowaction={handleRowAction} >
+                                    </c-datatable>
+                                </div>
+                            </lightning:layoutItem>
+                        </lightning:layout>
+                    </template>
+                    <template if:true={item.config.viewMode}>
+                    
+                      <lightning-record-form record-id={item.row.Id} object-api-name={item.config.objectName} layout-type="Full" columns="2"
+                      mode="view">
+                    </lightning-record-form>
+                    </template>
+                    <template if:true={item.config.editMode}>
+                      
+                            <lightning-messages></lightning-messages>
+                           
+                            
+                            
+                            <lightning-tabset variant="vertical">
+                                <lightning-record-edit-form layout-type="Full" record-id={item.row.Id} object-api-name={item.config.objectName} columns="2"  onsuccess={showToast}>
+                                <template for:each={item.sectionWiseColumns} for:item="section" for:index="index">
+                                    <lightning-tab label={section.section} key={key}>
+                                        <template for:each={section.columns} for:item="column">
+                                            <template if:true={column.withvalue}>
+                                                <lightning-input-field key={key} field-name={column.api}  value={column.value}></lightning-input-field>    
+                                            </template>
+                                            <template if:false={column.withvalue}>
+                                                <lightning-input-field key={key} field-name={column.api}></lightning-input-field>
+                                            </template>
+                                            
+                                        </template>   
+                                        <div style="text-align:center;">
+                                            <lightning-button class="slds-m-top_small"
+                                                              variant="brand"
+                                                              type="submit"
+                                                              name="update"
+                                                              label="Save"></lightning-button>
+                                        </div> 
+                                    </lightning-tab>
+                                    
+                                </template>
+                                
+                                </lightning-record-edit-form>   
+                                <template if:true={item.config.children}>
+                                    <template for:each={item.config.children} for:item="child" for:index="index">
+                                        <lightning-tab label={child.section} key={key}>
+                                            <lightning-button-icon icon-name="utility:add" data-objectname={child.objectName} data-parentref={child.relField.api} data-parentid={item.row.Id} alternative-text="Add" onclick={showNewChildForm}></lightning-button-icon>
+                                            <c-datatable config={child} data-id={item.tableid}  onrowaction={handleRowAction} >
+                                            </c-datatable>
+                                        </lightning-tab>
+                                    </template>
+                                </template>
+                            </lightning-tabset>
+                            
+
+                       
+                    </template>
+                 </lightning-tab>
+             </template>
+         </lightning-tabset>
+        </div>         
+    </lightning-card>       
+
+   
+</template>

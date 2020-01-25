@@ -1,0 +1,111 @@
+<template>
+
+    <lightning-card title="Training Application" icon-name="standard:account">
+        <div class="slds-card__body_inner">
+            <!--lightning-button variant="brand" label="New Search" title="New Search" onclick={addNewSearchTab} class="slds-m-left_x-small"></!--lightning-button-->
+         <c-tabset variant="scoped" onselect={onTabsetSelect} onclick={onTabsetClick} onendiconclick={onEndIconClick} ontabsetendiconclick={onTabsetEndIconClick} end-icon-name="utility:add" end-icon-class=""> 
+             <template for:each={tabCollection} for:item="item" for:index="index"> 
+                 <c-tab label={item.label} key={item.tabid} size="small" end-icon-name={item.endiconname} value={item.tabid}  data-indextab={item.tabid} onclick={onTabClick} onactive={onTactiveActive}> 
+                    <!--template if:true={item.showRemoveTab}>
+                        <lightning-button variant="brand" label="Remove Tab" title="Remove Tab" onclick={removeTab} data-index={item.tabid} class="slds-m-left_x-small"></lightning-button>
+                    </!--template-->
+                     <template if:true={item.isSearch}>
+                        <lightning-layout multiple-rows="true" vertical-align="end">
+                            <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6" padding="around-small">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <lightning-combobox data-indexcombo={item.tabid}
+                                        name="progress"
+                                        label="Pick"
+                                        value={defaultValue}
+                                        placeholder="Select Object"
+                                        options={options}
+                                        onchange={objectListChange}
+                                        required
+                                        >
+                                        </lightning-combobox>
+                                    </div>
+                                </div>    
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="5" medium-device-size="5" large-device-size="5" padding="around-small">
+                                <div class="slds-form-element">
+                                    <div class="slds-form-element__control">
+                                        <lightning-input name="search" type="text" value={item.searchTerm} label="Enter search text" placeholder="type here..." onchange={onSearchTermChange} data-index={item.tabid}></lightning-input>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" small-device-size="1" medium-device-size="1" large-device-size="1" padding="around-small">
+                                <lightning-button  label="New" title="New" onclick={showNewForm} class="slds-m-left_x-small" data-indexbutton={index} ></lightning-button>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        <div class="slds-grid">
+                            <div class="slds-col slds-size_12-of-12">
+                                <div class="custom-box">
+                                    <c-datatable config={item.config} data-id={item.tableid} onrowaction={handleRowAction} >
+                                    </c-datatable>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                    <template if:true={item.config.viewMode}>
+                    
+                      <lightning-record-form record-id={item.row.Id} object-api-name={item.config.objectName} layout-type="Full" columns="2"
+                      mode="view">
+                    </lightning-record-form>
+                    </template>
+                    <template if:true={item.config.editMode}>
+                      
+                            <lightning-messages></lightning-messages>
+                           
+                            
+                            
+                            <c-tabset variant="vertical">
+                                <lightning-record-edit-form layout-type="Full" record-id={item.row.Id} object-api-name={item.config.objectName} columns="2"  onsuccess={showToast}>
+                                <template for:each={item.sectionWiseColumns} for:item="section" for:index="index">
+                                    <c-tab label={section.section} key={key}>
+                                        <template for:each={section.columns} for:item="column">
+                                            <template if:true={column.withvalue}>
+                                                <lightning-input-field key={key} field-name={column.api}  value={column.value}></lightning-input-field>    
+                                            </template>
+                                            <template if:false={column.withvalue}>
+                                                <lightning-input-field key={key} field-name={column.api}></lightning-input-field>
+                                            </template>
+                                            
+                                        </template>   
+                                        <div style="text-align:center;">
+                                            <lightning-button class="slds-m-top_small"
+                                                              variant="brand"
+                                                              type="submit"
+                                                              name="update"
+                                                              label="Save"></lightning-button>
+                                        </div> 
+                                    </c-tab>
+                                    
+                                </template>
+                                
+                                </lightning-record-edit-form>   
+                                <template if:true={item.config.children}>
+                                    <template for:each={item.config.children} for:item="child" for:index="index">
+                                        <c-tab label={child.section} key={key}>
+                                            <lightning-button-icon icon-name="utility:add" data-objectname={child.objectName} data-parentref={child.relField.api} data-parentid={item.row.Id} alternative-text="Add" onclick={showNewChildForm}></lightning-button-icon>
+                                            <c-datatable config={child} data-id={item.tableid}  onrowaction={handleRowAction} >
+                                            </c-datatable>
+                                        </c-tab>
+                                    </template>
+                                </template>
+                            </c-tabset>
+                            
+
+                       
+                    </template>
+                 </c-tab>
+                 
+             </template>
+             
+         </c-tabset>
+            
+        </div>         
+    </lightning-card>       
+
+   
+</template>

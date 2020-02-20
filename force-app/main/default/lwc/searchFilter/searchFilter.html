@@ -1,0 +1,11 @@
+<template>
+    <template for:each={config.filterColumns} for:item="column" for:index="index">
+       
+            <div class="slds-form-element" key={key}>
+                <div class="slds-form-element__control">
+                    <lightning-input name={column.api} data-test="123"  data-queryindex={tabid} type={column.type} label={column.label} placeholder={column.placeholder} onchange={onSearchTermChange}  ></lightning-input>
+                </div>
+            </div>
+          
+    </template>
+</template>

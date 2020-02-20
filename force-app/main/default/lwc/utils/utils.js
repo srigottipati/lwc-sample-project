@@ -8,3 +8,4 @@
 export { classSet } from './classSet';
 export { queryFocusable } from './queryFocusable';
 export { formatLabel } from './labelUtils';
+export { retrieveRecords, getConfigs, deleteObjectRecord } from './dataHandler';

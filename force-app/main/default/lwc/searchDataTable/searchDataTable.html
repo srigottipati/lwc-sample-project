@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-grid slds-wrap slds-border_top slds-border_bottom slds-border_left slds-border_right">
+        <div class={dataTableClass} >    
+            <c-datatable config={config} data-test="test" data-id={tableid} onrowaction={handleRowAction} >
+            </c-datatable>
+        </div>
+        <div class={formClass} >
+            <c-custom-form columns={config.editConfig.columns}  record-id={rowId}  object-name={config.objectName} oncloseform={closeForm}></c-custom-form>    
+        </div>
+    </div>
+</template>

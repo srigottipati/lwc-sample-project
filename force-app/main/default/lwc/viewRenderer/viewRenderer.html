@@ -1,0 +1,8 @@
+<template>
+    <template if:true={item.isSearch}>
+        <c-search-container config={item.config} tableid={item.tableid}  configs={configs} tabid={item.tabid} onobjectlistchange={objectListChange} onrowaction={handleRowAction} onnewform={handleNewForm}></c-search-container>
+    </template>
+    <template if:true={item.config.editMode}>
+        <c-edit-details-form config={item.config} record-id={item.row.id} object-name={item.config.objectname} onrowaction={handleRowAction} onnewclick={showNewChildForm} row={item.row} table-id={item.tableid}></c-edit-details-form> 
+    </template>
+</template>

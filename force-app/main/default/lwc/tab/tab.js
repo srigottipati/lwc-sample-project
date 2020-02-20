@@ -13,7 +13,7 @@ export default class cTab extends LightningElement {
 
     connectedCallback() {
         this._connected = true;
-
+        console.log("tab");
         this.dispatchEvent(
             new CustomEvent('privatetabregister', {
                 cancelable: true,

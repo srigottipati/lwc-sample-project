@@ -6,7 +6,8 @@ import { NavigationMixin } from 'lightning/navigation';
 import { refreshApex } from '@salesforce/apex';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
-export default class LwcDataTable  extends NavigationMixin(LightningElement) {
+
+export default class lwcDataTable  extends NavigationMixin(LightningElement) {
   @api objectApiName;
   @api fieldNamesStr;
   @api inlineEdit = false;

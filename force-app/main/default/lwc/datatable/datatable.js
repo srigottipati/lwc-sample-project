@@ -1,7 +1,6 @@
 import { LightningElement, api, track } from 'lwc';
+import { retrieveRecords } from 'c/utils';
 
-import fetchDataMap from '@salesforce/apex/datatableController.fetchDataMap';
-import fetchDataMapCached from '@salesforce/apex/datatableController.fetchDataMapCached';
 
 export default class Datatable extends LightningElement {
     
@@ -67,6 +66,8 @@ export default class Datatable extends LightningElement {
     
     set config(value)
     {
+
+        console.log("datatable config set");
         this._config=value;
         this.processConfig();
         this.fields = this.tableProps.columns.filter(col => col.hasOwnProperty("api")).map(col => col.api).join();
@@ -119,6 +120,7 @@ export default class Datatable extends LightningElement {
         return "";
     }
     set queryFilters(value) {
+        console.log("queryfilter:" + value);
         this._queryFilters = value;
         if (this._initDone) {
             this.doDataReset();
@@ -337,7 +339,12 @@ export default class Datatable extends LightningElement {
 
     // retrieve the records form database
     fetchRecords() {
+
+
+
         return new Promise((resolve, reject) => {
+
+
             this.handleSpinner(true, this.userMessages.search);
 
             const params = {
@@ -351,15 +358,10 @@ export default class Datatable extends LightningElement {
                 soslSearchTerm: this.soslSearchTerm
             };
 
-            if (this.cacheable) {
-                fetchDataMapCached({ params })
-                    .then(DataMap => resolve(this.getResolve(DataMap.records)))
-                    .catch(error => reject(this.getReject(error)));
-            } else {
-                fetchDataMap({ params })
-                    .then(DataMap => resolve(this.getResolve(DataMap.records)))
-                    .catch(error => reject(this.getReject(error)));
-            }
+            retrieveRecords(params,this.cacheable)
+                .then(DataMap => resolve(this.getResolve(DataMap.records)))
+                .catch(error => reject(this.getReject(error)));
+
         });
     }
 

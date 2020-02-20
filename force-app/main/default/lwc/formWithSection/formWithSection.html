@@ -1,0 +1,29 @@
+<template>
+    <lightning-record-edit-form layout-type="Full" record-id={recordId} object-api-name={objectName} columns="2" >
+        <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+        <template for:each={sectionWiseColumns} for:item="section" for:index="index">
+            <lightning-accordion-section name={section.section} label={section.section} key={key}>
+            
+                <template for:each={section.columns} for:item="column">
+                    <template if:true={column.withvalue}>
+                        <lightning-input-field key={key} field-name={column.api}  value={column.value}></lightning-input-field>    
+                    </template>
+                    <template if:false={column.withvalue}>
+                        <lightning-input-field key={key} field-name={column.api}></lightning-input-field>
+                    </template>
+                    
+                </template>   
+                
+            </lightning-accordion-section>
+            
+        </template>
+        <div style="text-align:center;">
+            <lightning-button class="slds-m-top_small"
+                              variant="brand"
+                              type="submit"
+                              name="update"
+                              label="Save"></lightning-button>
+        </div> 
+    </lightning-accordion>
+        </lightning-record-edit-form> 
+</template>

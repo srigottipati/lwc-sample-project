@@ -1,0 +1,24 @@
+<template>
+    <lightning-messages></lightning-messages>
+    <template if:false={config.children}>
+       
+            <!--c-form-with-section section-wise-columns={item.sectionWiseColumns} record-id={item.row.Id}  object-name={item.config.objectName}></!c-form-with-section-->    
+            <c-custom-form columns={config.editConfig.columns}  record-id={row.Id}  object-name={objectName}></c-custom-form>    
+       
+    </template>   
+    <template if:true={config.children}>
+        <c-tabset variant="vertical">
+            <c-tab label="General" key={key}>
+                <c-custom-form columns={config.editConfig.columns}  record-id={row.Id}  object-name={config.objectName}></c-custom-form>    
+                <!--c-form-with-section section-wise-columns={item.sectionWiseColumns} record-id={item.row.Id}  object-name={item.config.objectName}></!--c-form-with-section-->    
+            </c-tab>
+            <template for:each={config.children} for:item="child" for:index="index">
+                <c-tab label={child.section} key={key}>
+                    <lightning-button-icon icon-name="utility:add" data-objectname={child.objectName} data-parentref={child.relField.api} data-parentid={row.Id} alternative-text="Add" onclick={showNewChildForm}></lightning-button-icon>
+                    <c-search-data-table config={child} tableid={tableid}  onrowaction={handleRowAction} >
+                    </c-search-data-table>
+                </c-tab>
+            </template>
+        </c-tabset>         
+    </template>
+</template>

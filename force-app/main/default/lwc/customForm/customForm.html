@@ -1,0 +1,49 @@
+<template>
+    <template if:true={isObjectNameUpdated}>
+        <lightning-messages></lightning-messages>
+        <lightning-record-edit-form layout-type="Full" record-id={recordId} object-api-name={objectName} columns="2" onload={handleLoad} >
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--12-of-12">
+                    <lightning-button-icon icon-name="utility:close" data-indexbutton={index}  class="slds-float_right slds-m-top_x-small slds-m-right_x-small" alternative-text="Close" onclick={handlecloseClick}></lightning-button-icon>
+                </div>
+                <div class="slds-size--1-of-1 slds-medium-size--6-of-6 slds-large-size--12-of-12">
+                    <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+                        <template for:each={sectionWiseColumns} for:item="section" for:index="index">
+                            <lightning-accordion-section name={section.section} label={section.section} key={key}>
+                                
+                                <template for:each={section.columns} for:item="column">
+                
+                                    <template if:true={column.readonly}>
+                                        <lightning-output-field key={key} data-readonly={column.readonly}  field-name={column.api}  value={column.value}></lightning-output-field>    
+                                    </template>
+                                    <template if:false={column.readonly}>
+                                        <template if:true={column.withvalue}>
+                                            <lightning-input-field key={key} data-readonly={column.readonly} data-field={column.api} onchange={handleFieldChange} field-name={column.api}  value={column.value}></lightning-input-field>    
+                                        </template>
+                                        <template if:false={column.withvalue}>
+                                            <lightning-input-field key={key} data-readonly={column.readonly} data-field={column.api} onchange={handleFieldChange} field-name={column.api}></lightning-input-field>
+                                        </template>
+                                    </template>
+                                    
+                                    
+                                </template>   
+                                
+                            </lightning-accordion-section>
+                            
+                        </template>
+                        <div style="text-align:center;">
+                            <lightning-button class="slds-m-top_small"
+                                              variant="brand"
+                                              onclick={saveForm}
+                                              name="update"
+                                              label="Save"></lightning-button>
+                        </div> 
+                    </lightning-accordion>
+                </div>
+            </div>
+            
+           
+        </lightning-record-edit-form> 
+    </template>
+    
+</template>

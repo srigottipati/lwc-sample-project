@@ -1,0 +1,46 @@
+<template>
+    <lightning-layout multiple-rows="true" vertical-align="end">
+        <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6" padding="around-small">
+            <div class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <lightning-combobox data-indexcombo={tabid}
+                    name="progress"
+                    label="Pick"
+                    value={defaultValue}
+                    placeholder="Select Object"
+                    options={options}
+                    onchange={objectListChange}
+                    required
+                    >
+                    </lightning-combobox>
+                </div>
+            </div>    
+        </lightning-layout-item>
+        <template if:true={config.searchConfig}>
+            <lightning-layout-item  key={key} size="5" small-device-size="5" medium-device-size="5" large-device-size="5" padding="around-small">
+                <c-search-filter config={config.searchConfig} tabid={tabid} onsearchtermchange={onSearchTermChange} ></c-search-filter>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="1" medium-device-size="1" large-device-size="1" padding="around-small">
+                    <template for:each={config.searchConfig.buttons} for:item="button" for:index="index">
+                        <lightning-button   label={button.label} 
+                            title={button.label} 
+                            key={key} 
+                            data-objectname={button.objectName} 
+                            data-actiontype={button.actionType} 
+                            onclick={processButtonClick} 
+                            class="slds-m-left_x-small " 
+                            data-tabid={tabid} data-indexbutton={index} ></lightning-button>
+                    </template>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_12-of-12">
+            <div class="custom-box">
+                <c-search-data-table config={config} tableid={tableid} onnewform={handleNewForm} onrowaction={handleRowAction} >
+                </c-search-data-table>
+              
+            </div>
+        </div>
+    </div>   
+</template>

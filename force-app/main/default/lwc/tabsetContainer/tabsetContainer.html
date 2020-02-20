@@ -1,0 +1,9 @@
+<template>
+    <c-tabset variant="scoped"  onendiconclick={onEndIconClick} ontabsetendiconclick={onTabsetEndIconClick} end-icon-name="utility:add" end-icon-class=""> 
+         <template for:each={tabCollection} for:item="item" for:index="index"> 
+             <c-tab label={item.label} key={item.tabid} size="small" end-icon-name={item.endiconname} value={item.tabid}  data-indextab={item.tabid}> 
+                <c-view-renderer key={key} item={item} configs={configs} onobjectlistchange={objectListChange} onrowaction={handleRowAction} onnewform={handleNewForm} onnewclick={showNewChildForm} ></c-view-renderer>
+             </c-tab>
+         </template>
+     </c-tabset>
+</template>

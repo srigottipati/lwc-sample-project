@@ -6,8 +6,17 @@
             "c/buttonMenu": [
                 "buttonMenu/buttonMenu.js"
             ],
+            "c/customForm": [
+                "customForm/customForm.js"
+            ],
             "c/datatable": [
                 "datatable/datatable.js"
+            ],
+            "c/editDetailsForm": [
+                "editDetailsForm/editDetailsForm.js"
+            ],
+            "c/formWithSection": [
+                "formWithSection/formWithSection.js"
             ],
             "c/icon": [
                 "icon/icon.js"
@@ -21,8 +30,8 @@
             "c/inputUtils": [
                 "inputUtils/inputUtils.js"
             ],
-            "c/lwcDatatable": [
-                "lwcDatatable/lwcDatatable.js"
+            "c/lwcDataTable": [
+                "lwcDataTable/lwcDataTable.js"
             ],
             "c/menuItem": [
                 "menuItem/menuItem.js"
@@ -36,32 +45,59 @@
             "c/resizeObserver": [
                 "resizeObserver/resizeObserver.js"
             ],
+            "c/runtimeController": [
+                "runtimeController/runtimeController.js"
+            ],
+            "c/sample": [
+                "sample/sample.js"
+            ],
             "c/sampleDataTable": [
                 "sampleDataTable/sampleDataTable.js"
             ],
             "c/sampleNewTable": [
                 "sampleNewTable/sampleNewTable.js"
             ],
+            "c/search": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/search/search.js"
+            ],
+            "c/searchContainer": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/searchContainer/searchContainer.js"
+            ],
+            "c/searchDataTable": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/searchDataTable/searchDataTable.js"
+            ],
+            "c/searchFilter": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/searchFilter/searchFilter.js"
+            ],
             "c/spinner": [
-                "spinner/spinner.js"
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/spinner/spinner.js"
             ],
             "c/tab": [
-                "tab/tab.js"
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/tab/tab.js"
             ],
             "c/tabBar": [
-                "tabBar/tabBar.js"
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/tabBar/tabBar.js"
             ],
             "c/tabset": [
-                "tabset/tabset.js"
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/tabset/tabset.js"
             ],
-            "c/utils": [
-                "utils/utils.js"
-            ],
-            "c/utilsPrivate": [
-                "utilsPrivate/utilsPrivate.js"
+            "c/tabsetContainer": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/tabsetContainer/tabsetContainer.js"
             ],
             "c/test": [
-                "test/test.js"
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/test/test.js"
+            ],
+            "c/utils": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/utils/utils.js"
+            ],
+            "c/utilsPrivate": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/utilsPrivate/utilsPrivate.js"
+            ],
+            "c/viewRenderer": [
+                "../../../../../development/grvt_sfdx/server/src/main/default/lwc/viewRenderer/viewRenderer.js"
+            ],
+            "c/test1": [
+                "test1/test1.js"
             ]
         }
     },
